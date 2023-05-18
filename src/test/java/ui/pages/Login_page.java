@@ -1,13 +1,11 @@
-package ui.com.pages;
+package ui.pages;
 
-import org.apache.commons.logging.Log;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
-import utils.DriverHelper;
 
 public class Login_page {
     public Login_page(WebDriver driver) {

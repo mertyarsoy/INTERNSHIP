@@ -1,11 +1,11 @@
-package ui.com.stepdefinitions;
+package ui.stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import ui.com.pages.Login_page;
+import ui.pages.Login_page;
 import utils.ConfigReader_UI_API;
 import utils.DriverHelper;
 
