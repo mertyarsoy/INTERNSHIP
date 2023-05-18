@@ -16,7 +16,7 @@ public class Hook {
     @Before
     public void setup() {
         driver = DriverHelper.getDriver();
-        driver.navigate().to(ConfigReader_UI_API.readProperty(""));
+        driver.navigate().to(ConfigReader_UI_API.readProperty("website_url"));
     }
 
     @After
