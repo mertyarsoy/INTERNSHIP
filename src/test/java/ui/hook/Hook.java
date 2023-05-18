@@ -1,9 +1,8 @@
-package ui.com.hook;
+package ui.hook;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import utils.BrowserUtils;
 import utils.ConfigReader_UI_API;
