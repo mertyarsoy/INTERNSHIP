@@ -3,6 +3,7 @@ package ui.pages;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
@@ -22,6 +23,10 @@ public class Home_page {
     List <WebElement> paragraphs;
     @FindBy(xpath = "//div[@class='card-body']//p[2]")
     List <WebElement> prices;
+    @FindBy(xpath = "//div[@class='card-body']//p[2]//following::button")
+    List<WebElement> addToCartButton;
+    @FindBy(xpath = "//a[.='Cart']")
+    WebElement cartButton;
 
 
     public void validateProdNumber(int expectedNum) throws InterruptedException {
@@ -49,5 +54,15 @@ public class Home_page {
         for (int i = 0; i < prices.size(); i++) {
             Assert.assertEquals(BrowserUtils.getTextandTrim(prices.get(i)),expectedPrice.get(i));
         }
+    }
+    public void validateAddCartButton(WebDriver driver) throws InterruptedException {
+        for (int i = 0; i < names.size(); i++) {
+            BrowserUtils.clickWithJS(driver, addToCartButton.get(i));
+            Actions actions = new Actions(driver);
+            actions.scrollToElement(addToCartButton.get(i));
+            Thread.sleep(1000);
+        }
+        BrowserUtils.scrollWithJS(driver,cartButton);
+        cartButton.click();
     }
 }
