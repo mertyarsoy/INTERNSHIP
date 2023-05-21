@@ -5,6 +5,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import ui.pages.Cart_page;
+import ui.pages.Home_page;
 import ui.pages.Login_page;
 import utils.ConfigReader_UI_API;
 import utils.DriverHelper;
@@ -13,6 +15,7 @@ public class Login_stepdef {
 
     WebDriver driver = DriverHelper.getDriver();
     Login_page loginPage = new Login_page(driver);
+
 
     @Given("User navigates to the website")
     public void userNavigatesToTheWebsite() {
@@ -36,4 +39,8 @@ public class Login_stepdef {
     public void userValidates(String errorMessage) {
         loginPage.validateErrorMessage(errorMessage);
     }
+
+
+
+
 }
