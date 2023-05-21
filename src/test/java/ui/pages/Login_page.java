@@ -1,6 +1,7 @@
 package ui.pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,8 +21,10 @@ public class Login_page {
     WebElement loginButton;
 
     public void Login(String username, String password) throws InterruptedException {
+        Thread.sleep(3000);
         this.username.clear();
         this.username.sendKeys(username);
+        Thread.sleep(3000);
         this.password.clear();
         this.password.sendKeys(password);
         loginButton.click();

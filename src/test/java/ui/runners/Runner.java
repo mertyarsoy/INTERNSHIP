@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/ui",
         glue = {"ui/hook","ui/stepdefinitions"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@vit_regression",
+        tags = "@QA_Regressionn",
         dryRun = false,
         plugin = {"pretty", "html:target/uiReport.html", "rerun:target/uiFailedTests.txt",
         "json:target/cucumber-reports/cucumber.json"}
