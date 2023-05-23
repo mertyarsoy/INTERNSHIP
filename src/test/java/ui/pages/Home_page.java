@@ -6,10 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.BrowserUtils;
 
 import java.lang.reflect.Array;
+import java.time.Duration;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Home_page {
@@ -23,17 +27,15 @@ public class Home_page {
     List <WebElement> paragraphs;
     @FindBy(xpath = "//div[@class='card-body']//p[2]")
     List <WebElement> prices;
-    @FindBy(xpath = "//div[@class='card-body']//p[2]//following::button")
-    List<WebElement> addToCartButton;
+
     @FindBy(xpath = "//a[.='Cart']")
     WebElement cartButton;
 
-    @FindBy(xpath = "//div[@class='card-body']//p[2]//following::button//i")
-    WebElement checkmark1;
-    @FindBy(xpath = "//*[@id='root']/div/div/div/div[2]/div[1]/div/button")
-    WebElement addToCartButton1;
-    @FindBy(xpath = "//div[@class='card-body']//p[2]//following::button//following::i")
-    List<WebElement> checkMark;
+    @FindBy(xpath = "//div[@class='card-body']//button")
+    List<WebElement> addToCartButton;
+
+    @FindBy(xpath = " //div[@class='card-body']//i")
+    WebElement checkMarkAddToCartButton;
 
 
     public void validateProdNumber(int expectedNum) throws InterruptedException {
@@ -73,31 +75,23 @@ public class Home_page {
         cartButton.click();
     }
 
-
-
-    public void validateCheckMarks(WebDriver driver) throws InterruptedException{
-        for (int i = 0; i < addToCartButton.size(); i++){
-            BrowserUtils.clickWithJS(driver, addToCartButton.get(i));
-//            Actions actions = new Actions(driver);
-//            actions.scrollToElement(addToCartButton.get(i));
+    public void clickAddToCartButton (WebDriver driver) throws InterruptedException {
+        for (int i = 0; i < addToCartButton.size(); i++) {
             BrowserUtils.scrollWithJS(driver,addToCartButton.get(i));
-            Assert.assertTrue(checkMark.get(i).isDisplayed());
             Thread.sleep(1000);
+            addToCartButton.get(i).click();
         }
     }
-    public void validateCheckMark(WebDriver driver) throws InterruptedException{
-        Thread.sleep(3000);
-        Actions actions = new Actions(driver);
-        actions.scrollToElement(addToCartButton1);
-        Thread.sleep(3000);
-        addToCartButton1.click();
-        Assert.assertTrue(checkmark1.isDisplayed());
+    public boolean validateAddToCartButtonFunctionality () throws InterruptedException {
+
+        Thread.sleep(1000);
+
+        return checkMarkAddToCartButton.isDisplayed();
     }
+
     public void navigateToCart(WebDriver driver) {
-        //BrowserUtils.scrollWithJS(driver,cartButton);
-        //BrowserUtils.clickWithJS(driver,cartButton);
-        Actions actions = new Actions(driver);
-        actions.click(cartButton);
-        //cartButton.click();
+        BrowserUtils.scrollWithJS(driver,cartButton);
+        cartButton.click();
     }
 }
+
