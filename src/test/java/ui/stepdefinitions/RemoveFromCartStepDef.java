@@ -5,9 +5,10 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import ui.pages.Cart_page;
 import ui.pages.Home_page;
+import utils.DriverHelper;
 
 public class RemoveFromCartStepDef {
-    WebDriver driver;
+    WebDriver driver = DriverHelper.getDriver();
     Home_page homePage=new Home_page(driver);
     Cart_page cartPage=new Cart_page(driver);
     @When("user navigates to cart page and clicks remove button")
