@@ -22,4 +22,19 @@ public class Cart_page {
 
         Assert.assertEquals(actualAmountOfNames.size(),expectedAmountOfNames);
     }
+
+
+    @FindBy(xpath = "//tr//td[4]//button[.='Remove']")
+    List<WebElement> removeButton;
+    @FindBy(xpath = "//*[@id='root']/div/div/div/div/div")
+    WebElement cartIsEmptyMessage;
+
+    public void clickRemoveButton(){
+        for (int i = 0; i < removeButton.size(); i++) {
+            removeButton.get(i).click();
+        }
+    }
+    public void validateCartIsEmptyMessage(String message){
+        Assert.assertEquals(message, BrowserUtils.getTextandTrim(cartIsEmptyMessage));
+    }
 }

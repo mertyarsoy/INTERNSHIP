@@ -28,6 +28,13 @@ public class Home_page {
     @FindBy(xpath = "//a[.='Cart']")
     WebElement cartButton;
 
+    @FindBy(xpath = "//div[@class='card-body']//p[2]//following::button//i")
+    WebElement checkmark1;
+    @FindBy(xpath = "//*[@id='root']/div/div/div/div[2]/div[1]/div/button")
+    WebElement addToCartButton1;
+    @FindBy(xpath = "//div[@class='card-body']//p[2]//following::button//following::i")
+    List<WebElement> checkMark;
+
 
     public void validateProdNumber(int expectedNum) throws InterruptedException {
         Thread.sleep(3000);
@@ -64,5 +71,33 @@ public class Home_page {
         }
         BrowserUtils.scrollWithJS(driver,cartButton);
         cartButton.click();
+    }
+
+
+
+    public void validateCheckMarks(WebDriver driver) throws InterruptedException{
+        for (int i = 0; i < addToCartButton.size(); i++){
+            BrowserUtils.clickWithJS(driver, addToCartButton.get(i));
+//            Actions actions = new Actions(driver);
+//            actions.scrollToElement(addToCartButton.get(i));
+            BrowserUtils.scrollWithJS(driver,addToCartButton.get(i));
+            Assert.assertTrue(checkMark.get(i).isDisplayed());
+            Thread.sleep(1000);
+        }
+    }
+    public void validateCheckMark(WebDriver driver) throws InterruptedException{
+        Thread.sleep(3000);
+        Actions actions = new Actions(driver);
+        actions.scrollToElement(addToCartButton1);
+        Thread.sleep(3000);
+        addToCartButton1.click();
+        Assert.assertTrue(checkmark1.isDisplayed());
+    }
+    public void navigateToCart(WebDriver driver) {
+        //BrowserUtils.scrollWithJS(driver,cartButton);
+        //BrowserUtils.clickWithJS(driver,cartButton);
+        Actions actions = new Actions(driver);
+        actions.click(cartButton);
+        //cartButton.click();
     }
 }
