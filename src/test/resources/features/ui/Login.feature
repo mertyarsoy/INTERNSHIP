@@ -1,4 +1,4 @@
-@QA_Regression
+@QA_MERT_Regression
 Feature: Login Testing
 
   Scenario: : Happy Path Login Functionality

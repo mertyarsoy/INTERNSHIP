@@ -1,4 +1,4 @@
-@vit_regression
+@QA_VITALY_Regression
   Feature: Testing Products List
     Scenario: Testing that all products must be present and listed on home page
       Given user provides username and password

@@ -21,10 +21,10 @@ public class Login_page {
     WebElement loginButton;
 
     public void Login(String username, String password) throws InterruptedException {
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         this.username.clear();
         this.username.sendKeys(username);
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         this.password.clear();
         this.password.sendKeys(password);
         loginButton.click();
