@@ -12,11 +12,11 @@ import java.io.File;
 import java.io.IOException;
 public class RegisterAdminStepDef {
     Response response;
-    @When("user has codefish endpoint")
-    public void userHasCodefishEndpoint() {
-        RestAssured.baseURI= ConfigReader_UI_API.readProperty("api_url");
-        RestAssured.basePath ="/register";
-    }
+//    @When("user has codefish endpoint")
+//    public void userHasCodefishEndpoint() {
+//        RestAssured.baseURI= ConfigReader_UI_API.readProperty("api_url");
+//        RestAssured.basePath ="/register";
+//    }
     @Then("user sends POST request to register admin user and status code is {int}")
     public void userSendsPOSTRequestToRegisterAdminUserAndStatusCodeIs(int statusCode) throws IOException {
         AdminUserPojo user = new AdminUserPojo();
