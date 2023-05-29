@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "api/stepdefinitions",
         dryRun = false,
-        tags = "@API_Mert",
+        tags = "@API_Vitaliy",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {"pretty", "html:target/uiReport.html", "rerun:target/uiFailedTests.txt",
                 "json:target/cucumber-reports/cucumber.json"}
